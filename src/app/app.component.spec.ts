@@ -1,6 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { EventdemoComponent } from './eventdemo/eventdemo.component';
+import { InterpolationdemoComponent } from './interpolationdemo/interpolationdemo.component';
+import { PropertydemoComponent } from './propertydemo/propertydemo.component';
+import { TwowaydemoComponent } from './twowaydemo/twowaydemo.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -9,7 +13,11 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        EventdemoComponent,
+        InterpolationdemoComponent,
+        PropertydemoComponent,
+        TwowaydemoComponent
       ],
     }).compileComponents();
   });
@@ -26,10 +34,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('data-binding');
   });
 
-  it('should render title', () => {
+  it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('data-binding app is running!');
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('data-binding');
   });
 });
